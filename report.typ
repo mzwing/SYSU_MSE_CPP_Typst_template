@@ -105,7 +105,14 @@
   problems: [],
   summary: [],
 ) = {
-  let font-song = ("Times New Roman", "SimSun")
+  // 确保表格里的字体也能跨平台，且不报警告
+  let font-song = (
+    "Times New Roman", 
+    "SimSun", 
+    "Songti SC", "STSong", 
+    "Noto Serif CJK SC", 
+    "serif"
+  )
   
   // 辅助函数：将标题和内容拼接放在同一个单元格内
   // 标题使用 四号(14pt)，正文使用 小四(12pt)
