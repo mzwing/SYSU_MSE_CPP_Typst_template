@@ -7,9 +7,17 @@
   set page(paper: "a4", numbering: "1", number-align: center)
   set text(font: fonts.serif, lang: "zh", size: 11pt)
 
-  show raw.where(block: true): box.with(fill: luma(240), inset: (x: 1.25em, y: 1em), width: 100%, radius: 4pt)
-
-  show raw.where(block: true): par.with(first-line-indent: 0em, justify: true, leading: 8pt)
+  // Use an explicit wrapper to keep raw block content visible and page-breakable.
+  show raw.where(block: true): it => block(
+    fill: luma(240),
+    inset: (x: 1.25em, y: 1em),
+    width: 100%,
+    radius: 4pt,
+    breakable: true,
+  )[
+    #set par(first-line-indent: 0em, justify: false, leading: 8pt)
+    #it
+  ]
 
   show raw.where(block: false): box.with(
     fill: luma(240),

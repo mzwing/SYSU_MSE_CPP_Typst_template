@@ -119,20 +119,31 @@
   let section(title, body) = [
     #text(size: 14pt, font: font-song)[#title]
     #v(0.8em, weak: true) // 标题和内容之间的间距
-    #text(size: 12pt, font: font-song)[#body]
+    #set text(size: 12pt, font: font-song)
+    #body
   ]
 
-  table(
-    columns: (100%), // 改为单列，占据 100% 宽度
-    align: left + top, // 全局左对齐、顶部对齐
-    stroke: 0.5pt,
-    inset: 12pt, // 单元格内边距
-    section([实验序号及名称], exp-name),
-    section([一、 实验目的], objective),
-    section([二、 实验环境], environment),
-    section([三、 实验内容与步骤], content),
-    section([四、 遇到的问题及解决方法], problems),
-    section([五、 总结与思考], summary),
-  )
+  let section-block(title, body, first: false) = block(
+    width: 100%,
+    inset: 12pt,
+    breakable: true,
+    above: 0pt,
+    below: 0pt,
+    stroke: (
+      left: 0.5pt,
+      right: 0.5pt,
+      bottom: 0.5pt,
+      top: if first { 0.5pt } else { none },
+    ),
+  )[ #section(title, body) ]
+
+  [
+    #section-block([实验序号及名称], exp-name, first: true)
+    #section-block([一、 实验目的], objective)
+    #section-block([二、 实验环境], environment)
+    #section-block([三、 实验内容与步骤], content)
+    #section-block([四、 遇到的问题及解决方法], problems)
+    #section-block([五、 总结与思考], summary)
+  ]
 }
 }

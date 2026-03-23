@@ -45,6 +45,20 @@
         cout << "a+b=" << a+b << endl;
         return 0;
     }
+    int main() {
+        int a, b;
+        cout << "Please input two integer numbers:" << endl;
+        cin >> a >> b;
+        cout << "a+b=" << a+b << endl;
+        return 0;
+    }
+    int main() {
+        int a, b;
+        cout << "Please input two integer numbers:" << endl;
+        cin >> a >> b;
+        cout << "a+b=" << a+b << endl;
+        return 0;
+    }
     ```
   ],
   problems: [无],
