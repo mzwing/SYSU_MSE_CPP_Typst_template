@@ -130,11 +130,8 @@
     编译器：#env.compiler
   ]
 
-  let question-images(paths) = [
-    #for path in paths [
-      #image(path, width: 70%)
-      #v(0.8em, weak: true)
-    ]
+  let question-images(images) = [
+    #images
   ]
 
   let content-block(items) = [
@@ -153,6 +150,7 @@
 
       #if item.image != () [
         #v(0.8em, weak: true)
+        *运行截图*：
         #question-images(item.image)
       ]
 

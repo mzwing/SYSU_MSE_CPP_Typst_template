@@ -45,10 +45,10 @@
         }
         ```
       ],
-      image: (
-        "./images/sysu.png",
-        "./images/sysu.png",
-      ),
+      image: [
+        #image("./images/sysu.png")
+        #image("./images/sysu.png")
+      ],
       extra: [
         *原始代码存在错误*：
         - 多处代码不以 `;` 结尾
