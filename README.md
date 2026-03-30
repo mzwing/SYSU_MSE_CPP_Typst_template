@@ -31,14 +31,16 @@ install-local-package.bat
 也可以自定义 `namespace`/`name`/`version`/`data-dir`，参数顺序为：
 
 ```text
-<namespace> <name> <version> <data-dir>
+[--force] <namespace> <name> <version> <data-dir>
 ```
 
 例如：
 
 ```bash
-./install-local-package.sh local sysu-mse-cpp-template 0.1.0 "$HOME/Library/Application Support"
+./install-local-package.sh --force local sysu-mse-cpp-template 0.1.0 "$HOME/Library/Application Support"
 ```
+
+force参数的作用是如需要链接到的目录已经有东西，则无条件删除后创建链接。**请谨慎使用！**
 
 > 注意：使用脚本指定`version`和`name`并不会更新`typst.toml`里的版本号和包名。为避免不可预期的后果，请保持与`typst.toml`里面的值一致
 

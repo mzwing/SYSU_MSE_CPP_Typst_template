@@ -1,6 +1,15 @@
 @echo off
 setlocal EnableExtensions
 
+set "FORCE=0"
+if /I "%~1"=="--force" (
+  set "FORCE=1"
+  shift
+) else if /I "%~1"=="-f" (
+  set "FORCE=1"
+  shift
+)
+
 set "NAMESPACE=%~1"
 if "%NAMESPACE%"=="" set "NAMESPACE=local"
 
@@ -32,10 +41,20 @@ exit /b 1
 
 if not exist "%TARGET_DIR%" mkdir "%TARGET_DIR%"
 
-if exist "%TARGET_LINK%\NUL" (
-  rmdir /S /Q "%TARGET_LINK%" 2>nul
-) else if exist "%TARGET_LINK%" (
-  del /F /Q "%TARGET_LINK%" 2>nul
+if exist "%TARGET_LINK%" (
+  if not "%FORCE%"=="1" (
+    echo Error: target already exists: %TARGET_LINK%
+    echo Refusing to remove it without --force.
+    exit /b 1
+  )
+)
+
+if "%FORCE%"=="1" (
+  if exist "%TARGET_LINK%\NUL" (
+    rmdir /S /Q "%TARGET_LINK%" 2>nul
+  ) else if exist "%TARGET_LINK%" (
+    del /F /Q "%TARGET_LINK%" 2>nul
+  )
 )
 
 if exist "%TARGET_LINK%" (
