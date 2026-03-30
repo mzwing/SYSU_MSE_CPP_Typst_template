@@ -148,7 +148,7 @@
       *代码*：
       #item.code
 
-      #if item.image != () [
+      #if item.image != [] [
         #v(0.8em, weak: true)
         *运行截图*：
         #question-images(item.image)
