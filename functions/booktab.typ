@@ -1,5 +1,4 @@
 #import "helpers.typ": *
-#import "fonts.typ": *
 
 #let booktab(columns: (), aligns: (), width: auto, caption: none, ..cells) = {
   let headers = cells.pos().slice(0, columns.len())
@@ -26,7 +25,7 @@
         width: 100% - 1em,
         grid(columns: columns, ..zip(headers, aligns).map(it => [
           #set align(it.last())
-          #textbf(it.first())
+          #text(weight: "semibold")[#it.first()]
         ])),
       )
     ], line(length: 100%), [

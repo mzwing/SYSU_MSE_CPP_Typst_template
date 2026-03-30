@@ -2,7 +2,7 @@
 
 本模板基于YSOS 2项目中附带实验报告模板修改
 
-原项目：https://github.com/YatSenOS/YatSenOS-Tutorial-Volume-2/tree/main/template
+原项目：<https://github.com/YatSenOS/YatSenOS-Tutorial-Volume-2/tree/main/template>
 
 格式参照25级曾剑敏老师 程序设计II实验 课程附件中实验报告参考模板修改。
 
@@ -22,16 +22,54 @@
 | 实验序号及名称等小标题  | 宋体                             | 四号     | 常规     |
 | 实验报告内容            | 中文：宋体 英文：Times New Roman | 小四     | 常规     |
 
-下为原项目readme
-
 ## 使用方式
 
-- 安装 [Typst](https://typst.app)
-- 将本仓库克隆到任意目录
-- 通过 `ln -s /path/to/repo/ ./base` 将本仓库链接到你的项目
-- 在 Typst 中使用模板（例如 `#import "./base/templates/report.typ": *`）
+MacOS / Linux:
 
-你可以在 [usage.typ](./usage.typ) 中查看示例。
+```bash
+./install-local-package.sh
+```
 
-或者直接修改usage.typ
+Windows:
 
+```bat
+install-local-package.bat
+```
+
+上述脚本会尝试把当前仓库软链接到 Local packages 目录下，安装完成后在任何项目里都可以直接import：
+
+```typ
+#import "@local/sysu-mse-cpp-template:0.1.0": report, lab-table
+```
+
+也可以自定义 `namespace`/`name`/`version`/`data-dir`，参数顺序为：
+
+```text
+<namespace> <name> <version> <data-dir>
+```
+
+例如：
+
+```bash
+./install-local-package.sh local sysu-mse-cpp-template 0.1.0 "$HOME/Library/Application Support"
+```
+
+> 注意：使用脚本指定`version`和`name`并不会更新`typst.toml`里的版本号和包名。为避免不可预期的后果，请保持与`typst.toml`里面的值一致
+
+### 字体说明
+
+根据 Typst 包资源说明，包本身不应该规定用户项目实际使用的字体，也不应在包里携带字体文件。
+
+因此这个模板：
+
+- 包内部不再硬编码正文字体和代码字体
+- 使用者必须在“自己的项目根目录”里手动提供一个 `fonts.typ`
+- 模板通过 `report(fonts: ...)` 显式接收字体配置
+- Windows 用户可以直接复制本仓库根目录下 [fonts.typ](./fonts.typ) 的内容作为起点
+- 其他系统请先运行 `typst fonts` 查看可用字体，再自行修改 `fonts.typ`
+
+这里的 [fonts.typ](./fonts.typ) 只是“给用户复制到自己项目里”的推荐示例，不属于包的自动配置，也不应该被当作包 API 依赖。
+
+### Demo
+
+参见[usage.typ](./usage.typ)

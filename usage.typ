@@ -1,4 +1,5 @@
-#import "./report.typ": *
+#import "@local/sysu-mse-cpp-template:0.1.0": report, lab-table
+#import "./fonts.typ": report-fonts
 
 #show: report.with(
   course: "《C++程序设计》实验报告",
@@ -7,7 +8,8 @@
   stdid: "123456",
   name: "lbyxiaolizi",
   week: "第 2 周",
-  date: "2026年3月9日"
+  date: "2026年3月9日",
+  fonts: report-fonts,
 )
 
 #lab-table(

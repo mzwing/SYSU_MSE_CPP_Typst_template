@@ -1,11 +1,14 @@
-#import "./functions/fonts.typ": *
 #import "./functions/booktab.typ": *
 #import "@preview/physica:0.8.0": *
 
 // Set the default style for the document
-#let shared(doc) = {
+#let shared(doc, fonts: none) = {
   set page(paper: "a4", numbering: "1", number-align: center)
-  set text(font: fonts.serif, lang: "zh", size: 11pt)
+  if fonts == none {
+    set text(lang: "zh", size: 11pt)
+  } else {
+    set text(font: fonts.body, lang: "zh", size: 11pt)
+  }
 
   // Use an explicit wrapper to keep raw block content visible and page-breakable.
   show raw.where(block: true): it => block(
@@ -26,7 +29,11 @@
     radius: 3pt,
   )
 
-  show raw: text.with(font: fonts.monospace + fonts.sans, size: 1em)
+  if fonts == none {
+    show raw: text.with(size: 1em)
+  } else {
+    show raw: text.with(font: fonts.monospace, size: 1em)
+  }
 
   set heading(numbering: (..numbers) => {
     let level = numbers.pos().len();
@@ -64,7 +71,7 @@
   show link: underline
   set math.vec(delim: "[")
   set math.mat(delim: "[")
-  set par(spacing: line_height)
+  set par(spacing: 1em)
 
   doc
 }

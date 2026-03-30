@@ -1,0 +1,7 @@
+[package]
+name = "sysu-mse-cpp-template"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["lbyxiaolizi", "mzwing"]
+license = "MIT"
+description = "SYSU's Program Design Experiment II (School of Materials version) Report Template"
