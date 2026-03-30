@@ -92,10 +92,14 @@
 #let lab-table(
   exp-name: "",
   objective: [],
-  environment: [],
-  content: [],
+  environment: (
+    os: [],
+    devtools: [],
+    compiler: [],
+  ),
+  content: (),
   problems: [],
-  summary: [],
+  summary: (),
 ) = {
   let section(title, body) = [
     #text(size: 14pt)[#title]
@@ -120,12 +124,62 @@
     #section(title, body)
   ]
 
+  let environment-block(env) = [
+    操作系统：#env.os \
+    开发工具：#env.devtools \
+    编译器：#env.compiler
+  ]
+
+  let question-images(paths) = [
+    #for path in paths [
+      #image(path, width: 70%)
+      #v(0.8em, weak: true)
+    ]
+  ]
+
+  let content-block(items) = [
+    #for (index, item) in items.enumerate() [
+      *题目#(index + 1)：#item.question*
+
+      #v(0.8em, weak: true)
+      #item.question-detail
+
+      #v(0.8em, weak: true)
+      *解题思路*：#item.thinking
+
+      #v(0.8em, weak: true)
+      *代码*：
+      #item.code
+
+      #if item.image != () [
+        #v(0.8em, weak: true)
+        #question-images(item.image)
+      ]
+
+      #if item.extra != [] [
+        #v(0.8em, weak: true)
+        #item.extra
+      ]
+
+      #v(1em, weak: true)
+    ]
+  ]
+
+  let summary-block(items) = [
+    #for (index, item) in items.enumerate() [
+      *#(index + 1). #item.title* \
+      #item.content
+
+      #v(1em, weak: true)
+    ]
+  ]
+
   [
     #section-block([实验序号及名称], exp-name, first: true)
     #section-block([一、 实验目的], objective)
-    #section-block([二、 实验环境], environment)
-    #section-block([三、 实验内容与步骤], content)
+    #section-block([二、 实验环境], environment-block(environment))
+    #section-block([三、 实验内容与步骤], content-block(content))
     #section-block([四、 遇到的问题及解决方法], problems)
-    #section-block([五、 总结与思考], summary)
+    #section-block([五、 总结与思考], summary-block(summary))
   ]
 }
