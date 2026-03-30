@@ -3,8 +3,13 @@
 
 #let report-fonts = (
   body: (
-    "Times New Roman",
     "SimSun",
+    "宋体",
+    "Times New Roman",
+    "Georgia",
+    "Garamond",
+    "Palatino",
+    "Baskerville",
   ),
   monospace: (
     "JetBrains Mono",
@@ -12,16 +17,19 @@
     "Courier New",
   ),
   cover-hei: (
-    "Times New Roman",
     "SimHei",
+    "黑体",
     "Microsoft YaHei",
+    "Times New Roman",
   ),
   cover-fangsong: (
-    "Times New Roman",
     "FangSong",
+    "仿宋_GB2312",
+    "Times New Roman",
   ),
   cover-song: (
-    "Times New Roman",
     "SimSun",
+    "宋体",
+    "Times New Roman",
   ),
 )
