@@ -36,7 +36,7 @@
   }
 
   set heading(numbering: (..numbers) => {
-    let level = numbers.pos().len();
+    let level = numbers.pos().len()
 
     if (level == 1) {
       return numbering("一. ", numbers.pos().at(level - 1))

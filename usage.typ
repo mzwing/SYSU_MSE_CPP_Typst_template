@@ -1,4 +1,4 @@
-#import "@local/sysu-mse-cpp-template:0.1.0": report, lab-table
+#import "@local/sysu-mse-cpp-template:0.1.0": lab-table, report
 #import "./fonts.typ": report-fonts
 
 #show: report.with(
@@ -39,7 +39,7 @@
     ```cpp
     #include <iostream>
     using namespace std;
-    
+
     int main() {
         int a, b;
         cout << "Please input two integer numbers:" << endl;
@@ -70,5 +70,5 @@
 
     *2. 心得体会* \
     对CPP语言中的std库有了更深的认识，在编程中要更加注意namespace可能带来的问题，尽量少的使用全局引入。
-  ]
+  ],
 )
