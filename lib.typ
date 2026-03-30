@@ -108,21 +108,7 @@
     #body
   ]
 
-  let section-block(title, body, first: false) = block(
-    width: 100%,
-    inset: 12pt,
-    breakable: true,
-    above: 0pt,
-    below: 0pt,
-    stroke: (
-      left: 0.5pt,
-      right: 0.5pt,
-      bottom: 0.5pt,
-      top: if first { 0.5pt } else { none },
-    ),
-  )[
-    #section(title, body)
-  ]
+
 
   let environment-block(env) = [
     操作系统：#env.os \
@@ -173,11 +159,18 @@
   ]
 
   [
-    #section-block([实验序号及名称], exp-name, first: true)
-    #section-block([一、 实验目的], objective)
-    #section-block([二、 实验环境], environment-block(environment))
-    #section-block([三、 实验内容与步骤], content-block(content))
-    #section-block([四、 遇到的问题及解决方法], problems)
-    #section-block([五、 总结与思考], summary-block(summary))
+    #set text(font: ("Times New Roman", "SimSun", "Songti SC", "STSong", "Noto Serif CJK SC", "serif"))
+    #table(
+      columns: 100%,
+      stroke: 0.5pt,
+      align: left,
+      inset: 12pt,
+      section([实验序号及名称], exp-name),
+      section([一、 实验目的], objective),
+      section([二、 实验环境], environment-block(environment)),
+      section([三、 实验内容与步骤], content-block(content)),
+      section([四、 遇到的问题及解决方法], problems),
+      section([五、 总结与思考], summary-block(summary)),
+    )
   ]
 }
