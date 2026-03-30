@@ -7,7 +7,7 @@
   if fonts == none {
     set text(lang: "zh", size: 11pt)
   } else {
-    set text(font: fonts.body, lang: "zh", size: 11pt)
+    set text(font: fonts.serif, lang: "zh", size: 11pt)
   }
 
   // Use an explicit wrapper to keep raw block content visible and page-breakable.
@@ -32,7 +32,7 @@
   if fonts == none {
     show raw: text.with(size: 1em)
   } else {
-    show raw: text.with(font: fonts.monospace, size: 1em)
+    show raw: text.with(font: fonts.monospace + fonts.sans, size: 1em)
   }
 
   set heading(numbering: (..numbers) => {

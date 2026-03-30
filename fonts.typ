@@ -2,8 +2,9 @@
 // This is a Windows-oriented recommendation and is not imported by the package.
 
 #let report-fonts = (
-  body: (
-    "SimSun",
+  serif: (
+    "Source Han Serif SC",
+    "Source Han Serif",
     "宋体",
     "Times New Roman",
     "Georgia",
@@ -13,23 +14,40 @@
   ),
   monospace: (
     "JetBrains Mono",
-    "Consolas",
     "Courier New",
+    "Courier",
+    "Consolas",
+    "Monaco",
+  ),
+  sans: (
+    "Source Han Sans SC",
+    "Source Han Sans",
+    "黑体",
+    "SimHei",
+    "Microsoft YaHei",
+    "PingFang SC",
   ),
   cover-hei: (
-    "SimHei",
-    "黑体",
-    "Microsoft YaHei",
     "Times New Roman",
+    "SimHei", // Windows
+    "PingFang SC",
+    "Heiti SC", // macOS
+    "Noto Sans CJK SC", // Linux
+    "sans", // 兜底
   ),
   cover-fangsong: (
-    "FangSong",
-    "仿宋_GB2312",
     "Times New Roman",
+    "FangSong", // Windows
+    "STFangsong", // macOS
+    "Noto Serif CJK SC", // Linux
+    "serif", // 兜底
   ),
   cover-song: (
-    "SimSun",
-    "宋体",
     "Times New Roman",
+    "SimSun", // Windows
+    "Songti SC",
+    "STSong", // macOS
+    "Noto Serif CJK SC", // Linux
+    "serif", // 兜底
   ),
 )

@@ -50,7 +50,7 @@
   let font-hei = if fonts == none { none } else { fonts.cover-hei }
   let font-fangsong = if fonts == none { none } else { fonts.cover-fangsong }
   let font-song = if fonts == none { none } else { fonts.cover-song }
-  let body-font = if fonts == none { none } else { fonts.body }
+  let body-font = if fonts == none { none } else { fonts.serif }
 
   align(left)[
     #logo
